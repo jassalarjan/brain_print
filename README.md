@@ -134,21 +134,21 @@ The app measures 10 cognitive traits:
 ### Prerequisites
 - Node.js 18+ installed
 - MongoDB running on `localhost:27017`
-- Yarn package manager
+- npm (Node.js package manager)
 
 ### Backend Setup
 ```bash
 cd /app/server
-yarn install
-yarn dev
+npm install
+npm run dev
 # Server runs on http://localhost:5000
 ```
 
 ### Frontend Setup
 ```bash
 cd /app/client
-yarn install
-yarn dev
+npm install
+npm run dev
 # App runs on http://localhost:5173
 ```
 
@@ -265,10 +265,6 @@ This is an MVP application. To contribute:
 2. Create a feature branch
 3. Make your changes
 4. Submit a pull request
-
-## 📄 License
-
-MIT License - feel free to use this for personal or commercial projects.
 
 ---
 
