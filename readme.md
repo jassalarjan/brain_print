@@ -1,135 +1,206 @@
-# Personal Context Engine 🧠
+# **Personal Context Engine 2.0 — Cognitive Intelligence Platform**
 
-A full-stack web application that creates a "thinking fingerprint" by asking scenario-based questions and generating an animated cognitive-style Context Graph.
+*A full-stack cognitive analytics system that maps how people think, tracks cognitive evolution, and powers team performance intelligence.*
 
-## 🎯 Overview
+---
 
-The Personal Context Engine helps users understand their unique cognitive patterns through:
-- **12 Scenario-Based Questions**: Covering work, learning, decision-making, and team dynamics
-- **10 Cognitive Traits**: Analytical, Intuition-driven, Sequential, Improviser, and more
-- **Interactive Graph Visualization**: Animated React Flow graph showing trait relationships
-- **Personalized Insights**: 6 detailed insights about thinking, decision-making, and team behavior
-- **Profile Sharing**: Shareable links and JSON export
+## 🌐 **Overview**
 
-## 🏗️ Architecture
+**Personal Context Engine (PCE)** is a Node.js + React platform that creates a user's **"thinking fingerprint"** based on scenario-driven cognitive modeling.
+It visualizes cognitive patterns, generates insights, tracks evolution over time, and supports team-level intelligence for SaaS use cases.
 
-### Backend (Node.js + Express + TypeScript)
-- **Port**: 5000
-- **Database**: MongoDB
-- **Structure**:
-  ```
-  /server
-    /src
-      /routes         # API endpoints
-      /controllers    # Request handlers
-      /services       # Business logic (scoring, questions, storage)
-      /db            # MongoDB setup and models
-      /types         # TypeScript interfaces
-      server.ts      # Express app entry point
-  ```
+The system measures **10 cognitive traits**, produces an **interactive React Flow graph**, and stores profiles for future comparison, benchmarking, and team synchronization.
 
-### Frontend (React + TypeScript + Vite)
-- **Port**: 5173
-- **State Management**: Zustand
-- **Styling**: Tailwind CSS + shadcn/ui
-- **Graph Library**: React Flow
-- **Animations**: Framer Motion
-- **Structure**:
-  ```
-  /client
-    /src
-      /components
-        /ui          # shadcn components (Button, Card, Progress)
-        /core        # Custom components (Header, Footer, QuestionCard)
-      /pages         # 7 main pages
-      /store         # Zustand state management
-      /utils         # API calls, insights generation, utilities
-  ```
+PCE is designed as a foundation for:
 
-## 📊 API Endpoints
+* Cognitive benchmarking
+* Longitudinal evolution tracking
+* Team cognitive mapping
+* Organizational intelligence
+* Research-backed insights
+* SaaS product expansion
 
-### GET `/api/health`
-Health check endpoint
-- **Response**: `{ status: 'ok', timestamp: '...' }`
+---
 
-### GET `/api/questions`
-Get all scenario questions
-- **Response**: `{ success: true, data: Question[] }`
+## 🧠 **Core Features (MVP)**
 
-### POST `/api/session/score`
-Calculate cognitive scores from answers
-- **Request**: `{ answers: [{ questionId, choiceId }] }`
-- **Response**: `{ success: true, data: { scores, correlations } }`
+### **1. Scenario-Based Cognitive Assessment**
 
-### POST `/api/profile/save`
-Save profile and get shareable ID
-- **Request**: `{ scores, answers }`
-- **Response**: `{ success: true, data: { profileId, shareUrl } }`
+* 12 research-inspired scenario questions
+* Each mapped to weighted cognitive traits
+* Clean React interface with Zustand state management
 
-### GET `/api/profile/:id`
-Retrieve saved profile
-- **Response**: `{ success: true, data: Profile }`
+### **2. Cognitive Trait Scoring Engine**
 
-## 🎨 User Journey
+* 10 measurable traits
+* Score normalization (0–100)
+* Correlation matrix generation
+* Rule-based, deterministic scoring (no AI needed)
 
-1. **Landing Page** (`/`)
-   - Hero section with value proposition
-   - Feature cards
-   - "Start Context Session" CTA
+### **3. Interactive Context Graph**
 
-2. **Questionnaire** (`/questionnaire`)
-   - 12 scenario-based questions
-   - Progress bar
-   - Previous/Next navigation
-   - Answer selection with visual feedback
+* Built with **React Flow**
+* Node size + color reflect trait dominance
+* Animated edges represent correlations
+* Zoom, pan, minimap, and hover tooltips
 
-3. **Processing** (`/processing`)
-   - Animated loading screen
-   - Status updates (analyzing, calculating, generating)
-   - Automatic navigation to graph
+### **4. Personalized Insight Generation**
 
-4. **Graph View** (`/graph`)
-   - Interactive React Flow visualization
-   - Nodes sized/colored by trait scores
-   - Edges showing trait correlations
-   - Zoom, pan, minimap controls
+* 6 contextual insight categories
+* Synthesized from trait clusters and score patterns
+* Behavior-focused, not personality-based
 
-5. **Insights** (`/insights`)
-   - Top 5 dominant traits summary
-   - 6 detailed insight cards covering:
-     - How You Think
-     - Decision Style
-     - Learning Style
-     - Team Behavior
-     - Risk Approach
-     - Communication Style
+### **5. Profile Saving & Sharing**
 
-6. **Export** (`/export`)
-   - Shareable profile link (auto-generated)
-   - JSON download
-   - "Start Over" option
+* Short profile IDs generated via nanoid
+* Stored in MongoDB
+* Public profile viewer (`/profile/:id`)
+* JSON export option
 
-7. **View Profile** (`/profile/:id`)
-   - Public view of saved profiles
-   - All traits and insights visible
-   - Encourages visitors to create their own
+---
 
-## 🧠 Cognitive Traits
+## 🚀 **Advanced Features (2.0)**
 
-The app measures 10 cognitive traits:
+*Science + Business Intelligence Layer*
 
-1. **Analytical** - Data-driven, logical thinking
-2. **Intuition-Driven** - Gut-based decision making
-3. **Sequential** - Step-by-step, structured approach
-4. **Improviser** - Adaptive, flexible thinking
+### 🔬 **Cognitive Benchmarking Engine**
+
+* Trait percentiles vs global dataset
+* Role-based benchmarking
+* Thinking-style archetype clustering
+* Divergence score computation
+* Trait skew + cognitive signature metrics
+
+### 📈 **Cognitive Evolution Tracker**
+
+* Multi-session storage
+* Time-series visualization for trait progression
+* Cognitive drift & stability analysis
+* Change velocity calculation
+
+### 🧩 **Team Cognitive Mapping (SaaS Core)**
+
+* Aggregate multiple profiles into a single team map
+* Team diversity heatmaps
+* Collaboration synergy matrix
+* Conflict prediction models
+* Strength distribution analysis
+* Leadership compatibility reporting
+
+### 🧬 **Cognitive Pairing Index**
+
+* Compatibility score between two profiles
+* Communication alignment analysis
+* Decision-style complementarity
+* Potential friction zones
+* Interaction model summary
+
+---
+
+## 🏗️ **System Architecture**
+
+### 🔹 **Backend: Node.js + Express + TypeScript**
+
+* RESTful API layer
+* Modular controllers and services
+* MongoDB + Mongoose models
+* Dedicated scoring service
+* Profile storage service
+* CORS-enabled for frontend communication
+
+```
+/server
+  /src
+    /routes
+    /controllers
+    /services
+    /db
+    /types
+  server.ts
+```
+
+### 🔹 **Frontend: React + TypeScript + Vite**
+
+* Responsive Tailwind UI
+* shadcn/ui components
+* Zustand for global state
+* React Router for navigation
+* React Flow for graph visualization
+* Framer Motion for transitions
+* Recharts for data visualization
+
+```
+/client
+  /src
+    /components
+      /ui
+      /core
+    /pages
+    /store
+    /utils
+    main.tsx
+```
+
+---
+
+## 📡 **API Endpoints**
+
+### Core Endpoints
+
+* **GET** `/api/health` - Health check
+* **GET** `/api/questions` - Retrieve question set
+* **POST** `/api/session/score` - Calculate trait scores & correlations
+* **POST** `/api/profile/save` - Persist profile to DB
+* **GET** `/api/profile/:id` - Retrieve saved profile
+
+### Benchmarking Endpoints
+
+* **GET** `/api/benchmark/profile/:profileId` - Get benchmark analysis
+* **POST** `/api/benchmark/update` - Update global benchmarks
+* **GET** `/api/benchmark` - Get all benchmark data
+* **GET** `/api/benchmark/archetypes` - Get cognitive archetypes
+
+### Evolution Tracking Endpoints
+
+* **POST** `/api/evolution` - Create new session
+* **GET** `/api/evolution/user/:userId` - Get all user sessions
+* **GET** `/api/evolution/user/:userId/data` - Get evolution data with analysis
+* **GET** `/api/evolution/user/:userId/summary` - Get evolution summary
+* **GET** `/api/evolution/:sessionId` - Get specific session
+* **GET** `/api/evolution/compare` - Compare two sessions
+
+### Team Mapping Endpoints
+
+* **POST** `/api/team` - Create new team
+* **GET** `/api/team` - Get all teams
+* **GET** `/api/team/:teamId` - Get specific team
+* **PATCH** `/api/team/:teamId/members` - Update team members
+* **GET** `/api/team/:teamId/analysis` - Get team analysis
+
+### Pairing Endpoints
+
+* **POST** `/api/pairing` - Analyze cognitive pairing
+* **GET** `/api/pairing/:pairingId` - Get pairing analysis
+* **GET** `/api/pairing/profile/:profileId` - Get all pairings for profile
+
+---
+
+## 🧠 **Cognitive Traits Measured**
+
+1. **Analytical** - Data-driven decision making
+2. **Intuition-Driven** - Gut feeling and instinct
+3. **Sequential** - Step-by-step planning
+4. **Improviser** - Adaptive and flexible thinking
 5. **Risk-Neutral** - Comfortable with uncertainty
-6. **Comfort-Seeker** - Preference for proven methods
-7. **Clarity-First** - Values precision and understanding
+6. **Comfort-Seeker** - Prefers stability and safety
+7. **Clarity-First** - Values clear information
 8. **Fast-Decider** - Quick decision making
-9. **Overthinker** - Thorough deliberation
+9. **Overthinker** - Deep analysis and deliberation
 10. **Pattern-Seeker** - Sees connections and models
 
-## 🚀 Running the Application
+---
+
+## 🚀 **Running the Application**
 
 ### Prerequisites
 - Node.js 18+ installed
@@ -138,7 +209,7 @@ The app measures 10 cognitive traits:
 
 ### Backend Setup
 ```bash
-cd /app/server
+cd server
 npm install
 npm run dev
 # Server runs on http://localhost:5000
@@ -146,7 +217,7 @@ npm run dev
 
 ### Frontend Setup
 ```bash
-cd /app/client
+cd client
 npm install
 npm run dev
 # App runs on http://localhost:5173
@@ -154,118 +225,115 @@ npm run dev
 
 ### Environment Variables
 
-**Backend** (`/app/server/.env`):
+**Backend** (`server/.env`):
 ```
 PORT=5000
 MONGODB_URI=mongodb://localhost:27017/context-engine
-NODE_ENV=development
 ```
-
-**Frontend** (`/app/client/.env`):
-```
-VITE_API_URL=http://localhost:5000
-```
-
-## 🧪 Testing
-
-### Backend API Testing
-```bash
-# Health check
-curl http://localhost:5000/api/health
-
-# Get questions
-curl http://localhost:5000/api/questions
-
-# Calculate scores
-curl -X POST http://localhost:5000/api/session/score \
-  -H "Content-Type: application/json" \
-  -d '{"answers": [{"questionId": "q1", "choiceId": "q1c1"}]}'
-```
-
-### Frontend Testing
-- Navigate to `http://localhost:5173`
-- Complete the questionnaire
-- Verify graph renders correctly
-- Test profile sharing and export
-
-## 📦 Tech Stack
-
-### Backend
-- **Runtime**: Node.js
-- **Framework**: Express
-- **Language**: TypeScript
-- **Database**: MongoDB with Mongoose
-- **ID Generation**: nanoid
-
-### Frontend
-- **Framework**: React 18
-- **Language**: TypeScript
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS
-- **UI Components**: shadcn/ui (custom implementation)
-- **State Management**: Zustand
-- **Routing**: React Router v6
-- **Graph Visualization**: React Flow
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-
-## 🎯 Key Features
-
-### Scoring Engine
-- Weighted scoring system
-- Each answer contributes trait scores (0-15 points)
-- Normalized to 0-100 scale
-- Correlation calculation between traits
-
-### Insights Generation
-- Rule-based system
-- Contextual analysis of score combinations
-- 6 insight categories
-- Non-generic, personalized descriptions
-
-### Graph Visualization
-- Circular node layout
-- Node size represents trait strength
-- Node color based on score (purple > blue > cyan > gray)
-- Animated edges for strong correlations
-- Interactive controls (zoom, pan, minimap)
-
-### Data Persistence
-- MongoDB for profile storage
-- Short profile IDs (10 characters)
-- Shareable URLs
-- JSON export capability
-
-## 🏆 Production Quality Features
-
-✅ **Modular Architecture**: Clear separation of concerns
-✅ **TypeScript**: Full type safety across frontend and backend
-✅ **Error Handling**: Comprehensive error states and user feedback
-✅ **Responsive Design**: Works on mobile, tablet, and desktop
-✅ **Animations**: Smooth Framer Motion transitions
-✅ **Accessibility**: Semantic HTML and ARIA labels
-✅ **Performance**: Optimized bundle with Vite
-✅ **Scalable**: Clean code structure for future enhancements
-
-## 📝 Future Enhancements
-
-- User authentication
-- Historical profile comparison
-- Team/organization profiles
-- Advanced analytics dashboard
-- Export to PDF
-- Social media sharing cards
-- Multi-language support
-- Additional question sets
-
-## 🤝 Contributing
-
-This is an MVP application. To contribute:
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
 
 ---
 
-**Built with ❤️ using Node.js, Express, React, TypeScript, and MongoDB**
+## 🖥️ **User Journey**
+
+1. **Landing Page** → Value prop + CTA
+2. **Questionnaire** → 12 cognitive scenarios
+3. **Processing Screen** → Animated analysis
+4. **Graph View** → Cognitive trait network
+5. **Insights Page** → 6 detailed sections
+6. **Export Page** → JSON + shareable link
+7. **Profile Viewer** → View someone else's graph & insights
+8. **Benchmark View** → Compare against global data
+9. **Evolution Tracker** → See cognitive changes over time
+10. **Team Dashboard** → Analyze team cognitive dynamics
+11. **Pairing Analysis** → Evaluate collaboration compatibility
+
+---
+
+## ⚙️ **Tech Stack**
+
+### **Backend**
+
+* Node.js
+* Express
+* TypeScript
+* MongoDB (Mongoose)
+* nanoid
+
+### **Frontend**
+
+* React
+* TypeScript
+* Vite
+* Tailwind CSS
+* shadcn/ui
+* Zustand
+* React Router
+* React Flow
+* Framer Motion
+* Recharts
+
+---
+
+## 🧪 **Testing the API**
+
+### Health Check
+```bash
+curl http://localhost:5000/api/health
+```
+
+### Get Questions
+```bash
+curl http://localhost:5000/api/questions
+```
+
+### Calculate Scores
+```bash
+curl -X POST http://localhost:5000/api/session/score \
+  -H "Content-Type: application/json" \
+  -d '{"answers": [{"questionId":"q1","choiceId":"q1c1"}]}'
+```
+
+### Get Benchmark
+```bash
+curl http://localhost:5000/api/benchmark/profile/ABC12345
+```
+
+### Create Team
+```bash
+curl -X POST http://localhost:5000/api/team \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Dev Team","memberProfiles":["ABC123","DEF456"]}'
+```
+
+---
+
+## 🧭 **Future Enhancements**
+
+### 🔬 Scientific
+
+* Cognitive archetype clustering refinement
+* Research datasets integration
+* Weighted scoring calibration
+* Statistical trait models
+* Predictive analytics
+
+### 🚀 Business
+
+* Advanced team dashboards
+* Role-fit recommendation engine
+* Organizational insights
+* Admin panel + multi-user orgs
+* Subscription billing integration
+* API rate limiting and authentication
+
+---
+
+## 📄 **License**
+
+MIT — free for personal and commercial use.
+
+---
+
+## ❤️ **Credits**
+
+Built to explore cognitive modeling, behavioral insights, and team intelligence using modern full-stack engineering.

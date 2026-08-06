@@ -5,6 +5,14 @@ import { connectDB } from './db/database';
 import questionsRoutes from './routes/questions.routes';
 import scoreRoutes from './routes/score.routes';
 import profileRoutes from './routes/profile.routes';
+import benchmarkRoutes from './routes/benchmark.routes';
+import evolutionRoutes from './routes/evolution.routes';
+import teamRoutes from './routes/team.routes';
+import pairingRoutes from './routes/pairing.routes';
+import authRoutes from './routes/auth.routes';
+import memoryRoutes from './routes/memory.routes';
+import chatRoutes from './routes/chat.routes';
+import triggerRoutes from './routes/trigger.routes';
 
 dotenv.config();
 
@@ -21,9 +29,17 @@ app.get('/api/health', (req, res) => {
 });
 
 // Routes
+app.use('/api/auth', authRoutes);
+app.use('/api/memory', memoryRoutes);
+app.use('/api/chat', chatRoutes);
+app.use('/api/trigger', triggerRoutes);
 app.use('/api/questions', questionsRoutes);
 app.use('/api/session/score', scoreRoutes);
 app.use('/api/profile', profileRoutes);
+app.use('/api/benchmark', benchmarkRoutes);
+app.use('/api/evolution', evolutionRoutes);
+app.use('/api/team', teamRoutes);
+app.use('/api/pairing', pairingRoutes);
 
 // Error handling middleware
 app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {

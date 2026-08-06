@@ -38,3 +38,7 @@ const profileSchema = new mongoose.Schema({
 });
 
 export const ProfileModel = mongoose.model('Profile', profileSchema);
+
+// Export models from models.ts for convenience
+export * from './models';
+export * from './user-models';
